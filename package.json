@@ -10,6 +10,8 @@
   "author": "Janus Roestenburg <JanusRoestenburg@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
     "eslint": "^8.0.1",
     "express": "^4.17.1",
     "hjs": "^0.0.6",
