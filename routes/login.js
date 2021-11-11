@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-router.post('/postUser', (req, res, next) => {
+router.post('/', (req, res, next) => {
     const body = req.body
 
     res.json({
