@@ -1,41 +1,32 @@
-require('dotenv').config();
-const axios = require('axios');
-const express = require('express');
+const express = require("express");
 const path = require('path');
 
 const app = express();
 
-app.use(express.static('static'));
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'mustache')
+app.engine('mustache', require('hogan-middleware').__express)
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/static/index.html'));
+    res.send("Hello World");
 });
 
-app.get('/auth', (req, res) => {
-    res.redirect(
-        `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`,
-    );
-});
+app.get('/home', (req, res, next) => {
 
-app.get('/oauth-callback', ({ query: { code } }, res) => {
-    const body = {
-        client_id: process.env.GITHUB_CLIENT_ID,
-        client_secret: process.env.GITHUB_SECRET,
-        code,
-    };
-    const opts = { headers: { accept: 'application/json' } };
-    axios
-        .post('https://github.com/login/oauth/access_token', body, opts)
-        .then((_res) => _res.data.access_token)
-        .then((token) => {
-            // eslint-disable-next-line no-console
-            console.log('My token:', token);
+    res.render('home', null)
 
-            res.redirect(`/?token=${token}`);
-        })
-        .catch((err) => res.status(500).json({ err: err.message }));
-});
+})
 
-app.listen(3000);
-// eslint-disable-next-line no-console
-console.log('App listening on port 3000');
+app.get('/login', (req, res) => {
+    res.render('login', null)
+})
+
+const indexRouter = require('./routes/index')
+const loginRouter = require('./routes/login')
+
+app.use('/postUser', loginRouter)
+
+app.use('/route', indexRouter)
+
+app.listen(8091, () => console.log("Listening on port 8091"));
