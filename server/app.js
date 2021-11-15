@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -25,8 +26,8 @@ app.get('/login', (req, res) => {
 const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login')
 
-app.use('/postUser', loginRouter)
+app.use('/', loginRouter)
 
-app.use('/route', indexRouter)
+app.use('/', indexRouter)
 
 app.listen(8091, () => console.log("Listening on port 8091"));
