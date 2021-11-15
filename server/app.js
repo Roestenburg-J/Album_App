@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require('path');
-const bodyParser = require('body-parser');
+const mssql = require('mssql')
 
 const app = express();
 
@@ -24,7 +24,8 @@ app.get('/login', (req, res) => {
 })
 
 const indexRouter = require('./routes/index')
-const loginRouter = require('./routes/login')
+const loginRouter = require('./routes/login');
+const { SSL_OP_NO_QUERY_MTU } = require("constants");
 
 app.use('/', loginRouter)
 

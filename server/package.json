@@ -16,7 +16,8 @@
     "eslint": "^8.0.1",
     "express": "^4.17.1",
     "hjs": "^0.0.6",
-    "hogan-middleware": "^0.2.2"
+    "hogan-middleware": "^0.2.2",
+    "mssql": "^7.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
