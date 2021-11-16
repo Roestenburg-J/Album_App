@@ -1,9 +1,10 @@
-const connection = require('./database/connection');
 const path = require('path');
+const connection = require(path.join(__dirname, '../database/connection'));
 
-
-export const getPhotos = async (req, res) => {
-    const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM PHOTOS");
+const getPhotos = async (req, res) => {
+    const pool = await connection.getConnection();
+    const result = await pool.request().query("SELECT * FROM PHOTO");
     res.json(result.recordset)
 }
+
+module.exports.getPhotos = getPhotos;
