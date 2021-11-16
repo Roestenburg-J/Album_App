@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router();
 const mssql = require('mssql');
-const config = require('./config');
 
 router.get('/', (req, res) => {
     const pool = new sql.ConnectionPool({
