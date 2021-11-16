@@ -21,3 +21,5 @@ async function getConnection() {
 }
 
 getConnection();
+
+module.exports.getConnection = getConnection;
