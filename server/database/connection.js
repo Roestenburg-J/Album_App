@@ -1,7 +1,6 @@
 const { SSL_OP_NO_SSLv2 } = require('constants');
 const sql = require('mssql');
 const path = require('path');
-const { options } = require('../routes');
 const config = require(path.join(__dirname, '../config/config.js'))
 
 const dbsettings = {

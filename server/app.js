@@ -25,10 +25,12 @@ app.get('/login', (req, res) => {
 
 const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login');
-const { SSL_OP_NO_QUERY_MTU } = require("constants");
+const photoRouter = require('./routes/photo')
 
 app.use('/', loginRouter)
 
 app.use('/', indexRouter)
+
+app.use('/', photoRouter)
 
 app.listen(8091, () => console.log("Listening on port 8091"));
