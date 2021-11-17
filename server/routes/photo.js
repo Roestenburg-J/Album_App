@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path');
 const router = express.Router();
-const controller = require(path.join(__dirname, '../controllers/photos_controller'))
+const controller = require(path.join(__dirname, '../controllers/photo_controller'))
 
 router.get('/', (req, res) => {
 
