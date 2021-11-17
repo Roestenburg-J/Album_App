@@ -71,7 +71,6 @@ const deletePhotoByID = async (req, res) => {
 }
 
 const editPhotoByID = async (req, res) => {
-    const id = req.params.id;
     const { pdatetime, filepath, format, location, userid, takenby } = req.body;
 
     if (pdatetime == null || filepath == null || format == null || location == null || userid == null || takenby == null) {
@@ -88,7 +87,7 @@ const editPhotoByID = async (req, res) => {
             .input("location", sql.Text, location)
             .input("userid", sql.Int, userid)
             .input("takenby", sql.Text, takenby)
-            .query(query.updatePhtotByID);
+            .query(query.updatePhotoByID);
 
         res.status(200).json("Photo updated!");
     } catch (error) {
