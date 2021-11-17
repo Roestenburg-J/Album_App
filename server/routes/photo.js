@@ -11,8 +11,10 @@ router.get('/photo', controller.getPhotos)
 
 router.post('/photo', controller.createPhoto)
 
-// router.delete('/photo', controller.deletePhoto)
+router.get('/photo/:id', controller.getPhotoByID)
 
-// router.put('/photo', controller.editPhoto)
+router.delete('/photo/:id', controller.deletePhotoByID)
+
+router.put('/photo/:id', controller.editPhotoByID)
 
 module.exports = router;
