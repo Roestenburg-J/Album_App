@@ -7,6 +7,12 @@ router.get('/', (req, res) => {
 
 })
 
-router.get('/photos', controller.getPhotos)
+router.get('/photo', controller.getPhotos)
+
+router.post('/photo', controller.createPhoto)
+
+// router.delete('/photo', controller.deletePhoto)
+
+// router.put('/photo', controller.editPhoto)
 
 module.exports = router;
