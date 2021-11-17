@@ -1,2 +1,0 @@
-DELETE FROM [PHOTO]
-WHERE [PHOTO_ID] = [@photoId]
