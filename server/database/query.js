@@ -10,7 +10,12 @@ const query = {
     getAlbums: "SELECT * FROM ALBUM",
     createAlbum: "INSERT INTO ALBUM (ALBUM_NAME, ALBUM_DESCRIPTION, ALBUM_DATE_CREATED, ALBUM_CREATED_BY) VALUES (@name, @description, @adatetime, @createdBy)",
     getAlbumByID: "SELECT * FROM ALBUM WHERE ALBUM_ID = @id",
-    deleteAlbumByID: "DELETE FROM PHOTO WHERE PHOTO_ID = @id"
+    deleteAlbumByID: "DELETE FROM ALBUM WHERE ALBUM_ID = @id",
+
+    //PhotoTag
+    getPhotoTags: "SELECT * FROM PHOTO_TAG WHERE PHOTO_ID = @id",
+    createPhotoTag: "INSERT INTO PHOTO_TAG (PHOTO_ID, TAG) VALUES (@photoid, @tag )",
+    deletePhotoTag: "DELETE FROM PHOTO_TAG WHERE PHOTO_ID = @id AND TAG = @tag"
 }
 
 module.exports = query;

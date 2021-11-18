@@ -46,7 +46,6 @@ const getPhotoByID = async (req, res) => {
         const result = await pool.request()
             .input("id", req.params.id)
             .query(query.getPhotoByID);
-
         res.json(result.recordset)
     } catch (error) {
         res.status(500);
