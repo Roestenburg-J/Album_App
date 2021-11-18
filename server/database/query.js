@@ -19,9 +19,9 @@ const query = {
     deletePhotoTag: "DELETE FROM PHOTO_TAG WHERE PHOTO_ID = @id AND TAG = @tag",
 
     //PhotoAlbum
-    getAlbumPhotos: "SELECT PHOTO_ID FROM ALBUM_PHOTO WHERE ALBUM_ID = @id",
+    getAlbumPhotos: "SELECT PHOTO_ID FROM ALBUM_PHOTO WHERE ALBUM_ID = @albumid",
     addPhotoToAlbum: "INSERT INTO ALBUM_PHOTO (ALBUM_ID, PHOTO_ID) VALUES (@albumid, @photoid)",
-    deletePhotoFromAlbum: "DELETE FROM ALBUM WHERE PHOTO_ID = @photoid AND ALBUM_ID = @albumid"
+    deletePhotoFromAlbum: "DELETE FROM ALBUM_PHOTO WHERE PHOTO_ID = @photoid AND ALBUM_ID = @albumid"
 
 
 }

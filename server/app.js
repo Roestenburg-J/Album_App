@@ -32,6 +32,7 @@ const loginRouter = require('./routes/login');
 const photoRouter = require('./routes/photo')
 const albumRouter = require('./routes/album')
 const photoTagRouter = require('./routes/photo_tag')
+const albumPhotoRouter = require('./routes/album_photo');
 
 app.use('/', loginRouter)
 
@@ -42,5 +43,7 @@ app.use('/', photoRouter)
 app.use('/', albumRouter)
 
 app.use('/', photoTagRouter)
+
+app.use('/', albumPhotoRouter)
 
 app.listen(8091, () => console.log("Listening on port 8091"));
