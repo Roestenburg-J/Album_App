@@ -18,7 +18,7 @@ const createPhoto = async (req, res) => {
 
     const { pdatetime, filepath, format, location, userid, takenby } = req.body;
 
-    if (pdatetime == null || filepath == null || format == null || location == null || userid == null || takenby == null) {
+    if (pdatetime == null || filepath == null || format == null || location == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
     }
 
@@ -30,7 +30,6 @@ const createPhoto = async (req, res) => {
             .input("format", sql.Text, format)
             .input("location", sql.Text, location)
             .input("userid", sql.Int, userid)
-            .input("takenby", sql.Text, takenby)
             .query(query.createPhoto);
         res.status(200).json("new photo added!");
     } catch (error) {
@@ -73,7 +72,7 @@ const deletePhotoByID = async (req, res) => {
 const editPhotoByID = async (req, res) => {
     const { pdatetime, filepath, format, location, userid, takenby } = req.body;
 
-    if (pdatetime == null || filepath == null || format == null || location == null || userid == null || takenby == null) {
+    if (pdatetime == null || filepath == null || format == null || location == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
     }
 
@@ -86,7 +85,6 @@ const editPhotoByID = async (req, res) => {
             .input("format", sql.Text, format)
             .input("location", sql.Text, location)
             .input("userid", sql.Int, userid)
-            .input("takenby", sql.Text, takenby)
             .query(query.updatePhotoByID);
 
         res.status(200).json("Photo updated!");
