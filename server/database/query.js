@@ -27,6 +27,8 @@ const query = {
     getSharedPhotosByUser: "SELECT PHOTO_ID FROM SHARED_PHOTO WHERE USER_ID = @userid",
     sharePhoto: "INSERT INTO SHARED_PHOTO (PHOTO_ID, USER_ID, SHARE_DATE_TIME, USER_FROM) VALUES (@photoid, @userid, @datetime, @userfrom)",
     unsharePhoto: "DELETE FROM SHARED_PHOTO WHERE PHOTO_ID = @photoid AND USER_ID = @userid"
+
+
 }
 
 module.exports = query;
