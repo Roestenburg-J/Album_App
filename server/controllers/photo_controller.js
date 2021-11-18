@@ -16,7 +16,7 @@ const getPhotos = async (req, res) => {
 
 const createPhoto = async (req, res) => {
 
-    const { pdatetime, filepath, format, location, userid, takenby } = req.body;
+    const { pdatetime, filepath, format, location, userid } = req.body;
 
     if (pdatetime == null || filepath == null || format == null || location == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
