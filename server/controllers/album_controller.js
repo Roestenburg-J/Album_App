@@ -16,9 +16,9 @@ const getAlbums = async (req, res) => {
 
 const createAlbum = async (req, res) => {
 
-    const { name, description, adatetime, createdby } = req.body;
+    const { name, description, adatetime, userid } = req.body;
 
-    if (name == null || description == null || adatetime == null || createdby == null) {
+    if (name == null || description == null || adatetime == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
     }
 
@@ -28,7 +28,7 @@ const createAlbum = async (req, res) => {
             .input("name", sql.Text, name)
             .input("description", sql.Text, description)
             .input("adatetime", sql.DateTime, Date())
-            .input("createdby", sql.Text, createdby)
+            .input("userid", sql.Int, userid)
             .query(query.createAlbum);
         res.status(200).json("new album added!");
     } catch (error) {
@@ -54,8 +54,6 @@ const getAlbumByID = async (req, res) => {
 }
 
 const deleteAlbumByID = async (req, res) => {
-    const id = req.params;
-
     try {
         const pool = await connection.getConnection();
         const result = await pool.request()
@@ -69,9 +67,9 @@ const deleteAlbumByID = async (req, res) => {
 }
 
 const editAlbumByID = async (req, res) => {
-    const { name, description, adatetime, createdby } = req.body;
+    const { name, description, adatetime, userid } = req.body;
 
-    if (name == null || description == null || adatetime == null || createdby == null) {
+    if (name == null || description == null || adatetime == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
     }
     try {
@@ -81,7 +79,7 @@ const editAlbumByID = async (req, res) => {
             .input("name", sql.Text, name)
             .input("description", sql.Text, description)
             .input("adatetime", sql.DateTime, Date())
-            .input("createdby", sql.Text, createdby)
+            .input("userid", sql.Int, userid)
             .query(query.updateAlbumByID);
 
         res.status(200).json("Album updated!");
