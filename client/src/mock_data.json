@@ -1,0 +1,60 @@
+{
+    "resources": [
+        {
+            "asset_id": "f2a3562b409ac5ffb0228bc1f5a44c2c",
+            "public_id": "samples/landscapes/landscape-panorama",
+            "format": "jpg",
+            "version": 1637346346,
+            "resource_type": "image",
+            "type": "upload",
+            "created_at": "2021-11-19T18:25:46Z",
+            "bytes": 7858062,
+            "width": 10906,
+            "height": 2349,
+            "url": "http://res.cloudinary.com/dp2afiwzu/image/upload/v1637346346/samples/landscapes/landscape-panorama.jpg",
+            "secure_url": "https://res.cloudinary.com/dp2afiwzu/image/upload/v1637346346/samples/landscapes/landscape-panorama.jpg"
+        },
+        {
+            "asset_id": "25cd9066216fd58c02560473486f0a7e",
+            "public_id": "samples/animals/kitten-playing",
+            "format": "gif",
+            "version": 1637346344,
+            "resource_type": "image",
+            "type": "upload",
+            "created_at": "2021-11-19T18:25:44Z",
+            "bytes": 6620002,
+            "width": 320,
+            "height": 180,
+            "url": "http://res.cloudinary.com/dp2afiwzu/image/upload/v1637346344/samples/animals/kitten-playing.gif",
+            "secure_url": "https://res.cloudinary.com/dp2afiwzu/image/upload/v1637346344/samples/animals/kitten-playing.gif"
+        },
+        {
+            "asset_id": "34926139af7fc63644c2a3e8022b3152",
+            "public_id": "samples/landscapes/nature-mountains",
+            "format": "jpg",
+            "version": 1637346344,
+            "resource_type": "image",
+            "type": "upload",
+            "created_at": "2021-11-19T18:25:44Z",
+            "bytes": 3171453,
+            "width": 3000,
+            "height": 2000,
+            "url": "http://res.cloudinary.com/dp2afiwzu/image/upload/v1637346344/samples/landscapes/nature-mountains.jpg",
+            "secure_url": "https://res.cloudinary.com/dp2afiwzu/image/upload/v1637346344/samples/landscapes/nature-mountains.jpg"
+        },
+        {
+            "asset_id": "1da92204a4c059cb17fa7d09d773f141",
+            "public_id": "samples/cloudinary-group",
+            "format": "jpg",
+            "version": 1637346343,
+            "resource_type": "image",
+            "type": "upload",
+            "created_at": "2021-11-19T18:25:43Z",
+            "bytes": 2856169,
+            "width": 3000,
+            "height": 1526,
+            "url": "http://res.cloudinary.com/dp2afiwzu/image/upload/v1637346343/samples/cloudinary-group.jpg",
+            "secure_url": "https://res.cloudinary.com/dp2afiwzu/image/upload/v1637346343/samples/cloudinary-group.jpg"
+        }
+    ]
+}
