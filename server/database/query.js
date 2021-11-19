@@ -26,9 +26,12 @@ const query = {
     //SharePhoto
     getSharedPhotosByUser: "SELECT PHOTO_ID FROM SHARED_PHOTO WHERE USER_ID = @userid",
     sharePhoto: "INSERT INTO SHARED_PHOTO (PHOTO_ID, USER_ID, SHARE_DATE_TIME, USER_FROM) VALUES (@photoid, @userid, @datetime, @userfrom)",
-    unsharePhoto: "DELETE FROM SHARED_PHOTO WHERE PHOTO_ID = @photoid AND USER_ID = @userid"
+    unsharePhoto: "DELETE FROM SHARED_PHOTO WHERE PHOTO_ID = @photoid AND USER_ID = @userid",
 
-
+    //ShareAlbum
+    getSharedAlbumsByUser: "SELECT ALBUM_ID FROM SHARED_ALBUM WHERE USER_ID = @userid",
+    shareAlbum: "INSERT INTO SHARED_ALBUM (ALBUM_ID, USER_ID, SHARE_DATE_TIME, USER_FROM) VALUES (@albumid, @userid, @datetime, @userfrom)",
+    unshareAlbum: "DELETE FROM SHARED_ALBUM WHERE ALBUM_ID = @albumid AND USER_ID = @userid"
 }
 
 module.exports = query;
