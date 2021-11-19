@@ -30,8 +30,8 @@ const createPhoto = async (req, res) => {
         const pool = await connection.getConnection();
         const result = await pool.request()
             .input("datetime", sql.DateTime, Date())
-            .input("filepath", sql.Text, filepath)
-            .input("format", sql.Text, format)
+            .input("filepath", sql.Text, upload.path)
+            .input("format", sql.Text, upload.mimetipe)
             .input("location", sql.Text, location)
             .input("userid", sql.Int, userid)
             .query(query.createPhoto);
