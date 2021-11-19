@@ -2,6 +2,8 @@ const path = require('path');
 const sql = require('mssql');
 const query = require(path.join(__dirname, '../database/query'))
 const connection = require(path.join(__dirname, '../database/connection'));
+const config = require(path.join(__dirname, '../config/config.js'))
+const multer = require('multer');
 
 const getPhotos = async (req, res) => {
     try {
@@ -17,10 +19,12 @@ const getPhotos = async (req, res) => {
 const createPhoto = async (req, res) => {
 
     const { pdatetime, filepath, format, location, userid } = req.body;
-
+    const upload = multer({ dest: '../userImages/' + userid })
     if (pdatetime == null || filepath == null || format == null || location == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
     }
+
+    upload.single('photo');
 
     try {
         const pool = await connection.getConnection();
