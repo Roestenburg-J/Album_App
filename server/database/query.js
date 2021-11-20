@@ -1,7 +1,8 @@
 const query = {
     //Photo
-    getPhotos: "SELECT ASSET_ID FROM PHOTO WHERE USER_ID = @id",
-    createPhoto: "INSERT INTO PHOTO (PHOTO_DATE_TIME, PHOTO_FILE_PATH, PHOTO_FORMAT, PHOTO_LOCATION, USER_ID) VALUES (@datetime, @filepath, @format, @location, @userid)",
+    getUserPhotos: "SELECT PUBLIC_ID FROM PHOTO WHERE USER_ID = @id",
+    createPhoto: "INSERT INTO PHOTO (PUBLIC_ID, USER_ID, URL) VALUES (@publicid, @userid, @url)",
+    getUrl: "SELECT URL FROM PHOTO WHERE USER_ID = @userid",
     getPhotoByID: "SELECT * FROM PHOTO WHERE PHOTO_ID = @id",
     deletePhotoByID: "DELETE FROM PHOTO WHERE PHOTO_ID = @id",
     updatePhotoByID: "UPDATE PHOTO SET PHOTO_DATE_TIME = @datetime, PHOTO_FILE_PATH = @filepath, PHOTO_FORMAT = @format, PHOTO_LOCATION = @location, USER_ID = @userid WHERE PHOTO_ID = @id",

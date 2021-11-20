@@ -2,14 +2,15 @@ const path = require('path');
 const sql = require('mssql');
 const query = require(path.join(__dirname, '../database/query'))
 const connection = require(path.join(__dirname, '../database/connection'));
-const config = require(path.join(__dirname, '../config/config.js'))
+const cloudinary = require('../utils/cloudinary');
+const upload = require('../utils/multer');
 
-const getPhotos = async (req, res) => {
+const getUserPhotos = async (req, res) => {
     try {
         const pool = await connection.getConnection();
         const result = await pool.request()
             .input('id', req.params.id)
-            .query(query.getPhotos);
+            .query(query.getUserPhotos);
         res.json(result.recordset)
     } catch (error) {
         res.status(500);
@@ -19,21 +20,13 @@ const getPhotos = async (req, res) => {
 
 const createPhoto = async (req, res) => {
 
-    const { assetid, userid } = req.body;
-
-    if (assetid == null || userid == null) {
-        return res.status(400).json({ msg: "Bad request, please fill in all fields" });
-    }
-
-    upload.single('photo');
-
     try {
         const pool = await connection.getConnection();
         const result = await pool.request()
-            .input("assetid", sql.Text, assetid)
+            .input("assetid", sql.Text, req.body.assetid)
             .input("userid", sql.Int, userid)
             .query(query.createPhoto);
-        res.status(200).json("new photo added!");
+        res.status(200).json(uploadResult);
     } catch (error) {
         res.status(500);
         res.send(error);
@@ -95,8 +88,8 @@ const editPhotoByID = async (req, res) => {
     }
 }
 
-module.exports.getPhotos = getPhotos;
+// module.exports.getPhotos = getPhotos;
 module.exports.createPhoto = createPhoto;
-module.exports.getPhotoByID = getPhotoByID;
+// module.exports.getPhotoByID = getPhotoByID;
 module.exports.deletePhotoByID = deletePhotoByID;
 module.exports.editPhotoByID = editPhotoByID;
