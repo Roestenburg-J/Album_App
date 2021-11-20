@@ -4,7 +4,7 @@ const router = express.Router();
 const controller = require(path.join(__dirname, '../controllers/album_controller'))
 
 
-router.get('/album', controller.getAlbums)
+router.get('/album/:id', controller.getAlbums)
 
 router.post('/album', controller.createAlbum)
 
