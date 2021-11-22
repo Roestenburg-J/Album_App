@@ -30,13 +30,6 @@ router.get('/photo/:userid', async (req, res) => {
 router.post('/photo/:id', upload.single('image'), async (req, res) => {
     //post a new photo for a spesific user
     try {
-
-    } catch (error) {
-        console.log(error)
-
-    }
-
-    try {
         const uploadResult = await cloudinary.uploader.upload(req.file.path);
         const publicid = uploadResult.public_id;
         const url = uploadResult.url;

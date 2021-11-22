@@ -18,9 +18,9 @@ const getAlbums = async (req, res) => {
 
 const createAlbum = async (req, res) => {
 
-    const { name, description, adatetime, userid } = req.body;
+    const { name, description, userid } = req.body;
 
-    if (name == null || description == null || adatetime == null || userid == null) {
+    if (name == null || description == null || userid == null) {
         return res.status(400).json({ msg: "Bad request, please fill in all fields" });
     }
 
@@ -29,7 +29,6 @@ const createAlbum = async (req, res) => {
         const result = await pool.request()
             .input("name", sql.Text, name)
             .input("description", sql.Text, description)
-            .input("adatetime", sql.DateTime, Date())
             .input("userid", sql.Int, userid)
             .query(query.createAlbum);
         res.status(200).json("new album added!");

@@ -9,7 +9,7 @@ const query = {
 
     //Album
     getAlbums: "SELECT * FROM ALBUM WHERE USER_ID = @id",
-    createAlbum: "INSERT INTO ALBUM (ALBUM_NAME, ALBUM_DESCRIPTION, ALBUM_DATE_CREATED, USER_ID) VALUES (@name, @description, @adatetime, @userid)",
+    createAlbum: "INSERT INTO ALBUM (ALBUM_NAME, ALBUM_DESCRIPTION, USER_ID) VALUES (@name, @description, @userid)",
     getAlbumByID: "SELECT * FROM ALBUM WHERE ALBUM_ID = @id",
     deleteAlbumByID: "DELETE FROM ALBUM WHERE ALBUM_ID = @id",
     updateAlbumByID: "UPDATE ALBUM SET ALBUM_NAME = @name, ALBUM_DESCRIPTION = @description, ALBUM_DATE_CREATED = @adatetime, USER_ID = @userid WHERE ALBUM_ID = @id",
